@@ -2,6 +2,7 @@ package org.springframework.samples.petclinic.owner.controller;
 
 import jakarta.validation.Valid;
 import java.net.URI;
+import java.util.List;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.samples.petclinic.owner.dto.CreateOwnerRequest;
@@ -32,8 +33,17 @@ public class OwnerController {
     }
 
     @GetMapping
-    public ResponseEntity<java.util.List<OwnerResponse>> listOwners(@RequestParam(required = false) String lastName) {
-        return null;
+    public ResponseEntity<List<OwnerResponse>> listOwners(@RequestParam(required = false) String lastName) {
+        List<Owner> owners;
+        if (lastName != null && !lastName.trim().isEmpty()) {
+            owners = ownerRepository.findByLastNameContainingIgnoreCase(lastName.trim());
+        } else {
+            owners = ownerRepository.findAllWithPets();
+        }
+        List<OwnerResponse> response = owners.stream()
+            .map(OwnerResponse::from)
+            .toList();
+        return ResponseEntity.ok(response);
     }
 
     @PostMapping
