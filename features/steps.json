@@ -74,6 +74,17 @@
         "type": "status_code",
         "expected": "{status}"
       }
+    },
+    {
+      "intent": "LIST_OWNERS",
+      "matches": [
+        "o atendente consulta a lista de donos",
+        "a lista de donos cadastrados é consultada"
+      ],
+      "action": {
+        "method": "GET",
+        "path": "/api/owners"
+      }
     }
   ]
 }

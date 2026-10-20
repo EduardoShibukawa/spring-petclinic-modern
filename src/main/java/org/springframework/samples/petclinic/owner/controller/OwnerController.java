@@ -31,6 +31,11 @@ public class OwnerController {
         this.petTypeRepository = petTypeRepository;
     }
 
+    @GetMapping
+    public ResponseEntity<java.util.List<OwnerResponse>> listOwners(@RequestParam(required = false) String lastName) {
+        return null;
+    }
+
     @PostMapping
     public ResponseEntity<OwnerResponse> createOwner(@Valid @RequestBody CreateOwnerRequest request) {
         Owner owner = new Owner(
