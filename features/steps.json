@@ -1,0 +1,79 @@
+{
+  "version": "1.0",
+  "target": {
+    "driver": "http",
+    "baseUrl": "http://localhost:8080"
+  },
+  "bindings": [
+    {
+      "intent": "GET_SPECIALTIES",
+      "matches": [
+        "o tutor consulta as especialidades disponíveis",
+        "o catálogo de especialidades é consultado",
+        "o usuário acessa o catálogo de especialidades"
+      ],
+      "action": {
+        "method": "GET",
+        "path": "/api/vets/specialties"
+      }
+    },
+    {
+      "intent": "FILTER_VETS",
+      "matches": [
+        "o tutor busca veterinários pela especialidade \"{specialty}\"",
+        "o usuário filtra veterinários por \"{specialty}\""
+      ],
+      "action": {
+        "method": "GET",
+        "path": "/api/vets?specialty={specialty}"
+      }
+    },
+    {
+      "intent": "GET_PET_TYPES",
+      "matches": [
+        "o tutor consulta os tipos de pets atendidos",
+        "os tipos de animais atendidos são consultados"
+      ],
+      "action": {
+        "method": "GET",
+        "path": "/api/pets/types"
+      }
+    },
+    {
+      "intent": "ASSERT_CONTAINS",
+      "matches": [
+        "o catálogo deve conter \"{item}\"",
+        "a resposta deve conter \"{item}\"",
+        "o veterinário \"{item}\" deve estar visível",
+        "o tipo \"{item}\" deve estar disponível"
+      ],
+      "assert": {
+        "type": "body_contains",
+        "value": "{item}"
+      }
+    },
+    {
+      "intent": "ASSERT_NOT_CONTAINS",
+      "matches": [
+        "nenhum veterinário sem a especialidade \"{item}\" deve ser retornado",
+        "o elemento \"{item}\" não deve estar visível"
+      ],
+      "assert": {
+        "type": "body_not_contains",
+        "value": "{item}"
+      }
+    },
+    {
+      "intent": "ASSERT_STATUS",
+      "matches": [
+        "a solicitação deve ter sucesso com status {status}",
+        "o status da resposta deve ser {status}",
+        "o status deve ser {status}"
+      ],
+      "assert": {
+        "type": "status_code",
+        "expected": "{status}"
+      }
+    }
+  ]
+}
