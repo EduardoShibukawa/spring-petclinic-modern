@@ -1,2 +1,4 @@
 {"model":"qwen3.8-flash","task":"task-0003-1","all_pass":true,"tests_passed":1,"tests_total":1,"turns":1,"wall_s":4.259,"status":"PASSED","first_time_pass":true,"lsp_enabled":true}
 {"model":"qwen3.8-flash","task":"task-0003-2","all_pass":true,"tests_passed":1,"tests_total":1,"turns":2,"wall_s":53.486,"status":"PASSED","first_time_pass":false,"lsp_enabled":true}
+{"model":"qwen3.8-flash","task":"task-0003-1","all_pass":true,"tests_passed":1,"tests_total":1,"turns":1,"wall_s":5.075,"status":"PASSED","first_time_pass":true,"lsp_enabled":true}
+{"model":"qwen3.8-flash","task":"task-0003-2","all_pass":true,"tests_passed":1,"tests_total":1,"turns":1,"wall_s":6.284,"status":"PASSED","first_time_pass":true,"lsp_enabled":true}
