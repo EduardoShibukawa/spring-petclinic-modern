@@ -4,10 +4,12 @@ import java.util.List;
 import org.springframework.http.ResponseEntity;
 import org.springframework.samples.petclinic.vet.dto.SpecialtyResponse;
 import org.springframework.samples.petclinic.vet.dto.VetResponse;
+import org.springframework.samples.petclinic.vet.model.Vet;
 import org.springframework.samples.petclinic.vet.repository.SpecialtyRepository;
 import org.springframework.samples.petclinic.vet.repository.VetRepository;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 @RestController
@@ -23,12 +25,18 @@ public class VetController {
     }
 
     @GetMapping
-    public ResponseEntity<List<VetResponse>> listVets() {
-        List<VetResponse> vets = vetRepository.findAll()
+    public ResponseEntity<List<VetResponse>> listVets(@RequestParam(required = false) String specialty) {
+        List<Vet> vets;
+        if (specialty != null && !specialty.isBlank()) {
+            vets = vetRepository.findBySpecialtiesNameIgnoreCase(specialty);
+        } else {
+            vets = vetRepository.findAll();
+        }
+        List<VetResponse> response = vets
             .stream()
             .map(VetResponse::from)
             .toList();
-        return ResponseEntity.ok(vets);
+        return ResponseEntity.ok(response);
     }
 
     @GetMapping("/specialties")
