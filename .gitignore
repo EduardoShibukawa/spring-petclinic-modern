@@ -30,4 +30,5 @@ target/
 
 ### Worktrees & Pi ###
 .worktrees/
-.pi/
+.pi/*
+!.pi/*.json

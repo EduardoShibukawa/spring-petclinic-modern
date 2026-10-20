@@ -1,0 +1,19 @@
+{
+  "$schema": "https://pi-harness.dev/schema/v2.json",
+  "version": "2.0",
+  "fast_test": {
+    "command": "./mvnw test -Dtest=*POJOTest -Dspring.profiles.active=test",
+    "timeout_ms": 30000
+  },
+  "env": {
+    "PETCLINIC_FEATURE_SPECIALTY_FEEDBACK": "1"
+  },
+  "reality_verifier": {
+    "driver": "http",
+    "feature_dir": "src/test/resources/features"
+  },
+  "dreams": {
+    "max_lines": 200,
+    "file": "LESSONS.md"
+  }
+}

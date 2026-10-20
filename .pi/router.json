@@ -1,0 +1,45 @@
+{
+  "quota_probe": {
+    "enabled": true,
+    "timeout_ms": 2000
+  },
+  "roles": {
+    "planner": {
+      "strategy": "priority_with_fallback",
+      "pool": [
+        { "provider": "anthropic", "model": "claude-opus-5-5", "reason": "Raciocínio profundo Opus" },
+        { "provider": "opencode-go", "model": "deepseek-v4-pro", "reason": "Raciocínio profundo 1M" },
+        { "provider": "opencode-go", "model": "gpt-6-luna", "reason": "Thinking avançado 1.1M" },
+        { "provider": "opencode-go", "model": "qwen3.8-max", "reason": "Arquitetura estruturada" }
+      ]
+    },
+    "decomposer": {
+      "strategy": "priority_with_fallback",
+      "pool": [
+        { "provider": "opencode-go", "model": "qwen3.8-max", "reason": "Obediência estrita a schemas" },
+        { "provider": "opencode-go", "model": "kimi-k2.7-code", "reason": "Especialista em contratos" },
+        { "provider": "opencode-go", "model": "qwen3.8-flash", "reason": "Fallback rápido" }
+      ]
+    },
+    "worker": {
+      "strategy": "jev_complexity_ladder",
+      "tiers": {
+        "free": [
+          { "provider": "opencode-go", "model": "minimax-m3.1-flash-free", "reason": "Nuvem gratuita 1M" },
+          { "provider": "opencode-go", "model": "longcat-2.5-preview-free", "reason": "Nuvem preview gratuita" },
+          { "provider": "local-llama", "model": "ornith-9b-local", "reason": "Local offline quota infinita" }
+        ],
+        "medium": [
+          { "provider": "opencode-go", "model": "qwen3.8-flash", "reason": "Flash de alta performance" },
+          { "provider": "opencode-go", "model": "glm-5.3-flash", "reason": "Flash alternativo" },
+          { "provider": "opencode-go", "model": "mimo-v2.6-flash", "reason": "Flash de resposta rápida" }
+        ],
+        "strong": [
+          { "provider": "opencode-go", "model": "deepseek-v4.1-flash", "reason": "Alta capacidade matemática/lógica" },
+          { "provider": "opencode-go", "model": "qwen3.8-max", "reason": "Refatoração pesada" },
+          { "provider": "anthropic", "model": "claude-sonnet-5-5", "reason": "Resolução de alta complexidade" }
+        ]
+      }
+    }
+  }
+}

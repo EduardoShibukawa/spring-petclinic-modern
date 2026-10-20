@@ -1,0 +1,9 @@
+{
+  "servers": {
+    "java": {
+      "command": "jdtls",
+      "args": ["-data", "/tmp/jdtls-workspace"],
+      "extensions": [".java"]
+    }
+  }
+}
