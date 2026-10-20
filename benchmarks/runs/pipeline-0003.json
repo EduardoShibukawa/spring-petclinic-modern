@@ -1,0 +1,39 @@
+{
+  "specId": "0003",
+  "startedAt": "2026-10-20T01:45:08.301Z",
+  "finishedAt": "2026-10-20T01:46:06.156Z",
+  "totalDurationSeconds": 57.855,
+  "modelTier": "opencode-go/qwen3.8-flash (JEV Dynamic Tier)",
+  "tasks": [
+    {
+      "taskId": "task-0003-1",
+      "taskFile": "/home/shibuka/Projetos/duh-homelab/spring-petclinic-modern/tasks/0003/task-01-seed-owners-and-pets.md",
+      "durationSeconds": 4.259,
+      "fastTestDurationSeconds": 4.222,
+      "attempts": 1,
+      "firstTimePass": true,
+      "model": "opencode-go/qwen3.8-flash",
+      "status": "PASSED"
+    },
+    {
+      "taskId": "task-0003-2",
+      "taskFile": "/home/shibuka/Projetos/duh-homelab/spring-petclinic-modern/tasks/0003/task-02-owner-controller-list-endpoint.md",
+      "durationSeconds": 53.486,
+      "fastTestDurationSeconds": 11.49,
+      "attempts": 2,
+      "firstTimePass": false,
+      "model": "opencode-go/qwen3.8-flash",
+      "status": "PASSED"
+    }
+  ],
+  "realityVerifier": {
+    "featurePath": "/home/shibuka/Projetos/duh-homelab/spring-petclinic-modern/features/0003_product_user_journey.feature",
+    "passedScenarios": 3,
+    "failedScenarios": 0,
+    "durationSeconds": 0.108
+  },
+  "dreams": {
+    "totalLessonsLines": 22,
+    "cappedLimit": 200
+  }
+}
